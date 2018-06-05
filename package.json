@@ -1,0 +1,27 @@
+{
+  "name": "whiskey-wig",
+  "version": "0.0.1",
+  "description": "What You See Kinda Is What You Get.",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "repository": "github.com/weareneopix/whiskey-wig",
+  "author": "Lazar Ljubenović",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "tsc:w": "tsc -w",
+    "test": "jasmine",
+    "test:w": "nodemon -w ./built --exec jasmine",
+    "build:w": "rm -r dist && tsc -w -p tsconfig.dist.json",
+    "build": "rm -r dist && tsc -p tsconfig.dist.json"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jasmine": "^2.8.7",
+    "@types/jsdom": "^11.0.4",
+    "jasmine": "^3.1.0",
+    "jsdom": "^11.11.0",
+    "nodemon": "^1.17.5",
+    "typescript": "^2.8.3"
+  }
+}
