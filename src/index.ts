@@ -115,3 +115,5 @@ export default class WhiskeyWig {
 }
 
 export * from './ww-nodes'
+export * from './tree'
+export * from './forest'
