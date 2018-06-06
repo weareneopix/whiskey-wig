@@ -1,5 +1,5 @@
 {
-  "name": "whiskey-wig",
+  "name": "@weareneopix/whiskey-wig",
   "version": "0.0.1",
   "description": "What You See Kinda Is What You Get.",
   "main": "./dist/index.js",
