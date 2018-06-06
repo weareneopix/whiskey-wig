@@ -1,5 +1,5 @@
 import {tokenizeTextNode} from '../src/ast'
-import {WhiskeyWigTextNode, WhiskyWigInterpolationErrorNode, WhiskyWigInterpolationNode} from '../src/ww-nodes'
+import {WhiskeyWigTextNode, WhiskeyWigInterpolationErrorNode, WhiskeyWigInterpolationNode} from '../src/ww-nodes'
 import * as utils from './testing-utils'
 
 describe(`tokenizeTextNode`, () => {
@@ -17,7 +17,7 @@ describe(`tokenizeTextNode`, () => {
   it(`should tokenize a string containing only interpolation`, () => {
     const domNode = utils.emptyDom().window.document.createTextNode(`{{ foo }}`)
     const expected = [
-      new WhiskyWigInterpolationNode(` foo `),
+      new WhiskeyWigInterpolationNode(` foo `),
     ]
     expect(tokenizeTextNode(domNode, acceptAll)).toEqual(expected)
   })
@@ -26,7 +26,7 @@ describe(`tokenizeTextNode`, () => {
     const domNode = utils.emptyDom().window.document.createTextNode(`foo {{ bar }} baz`)
     const expected = [
       new WhiskeyWigTextNode(`foo `),
-      new WhiskyWigInterpolationNode(` bar `),
+      new WhiskeyWigInterpolationNode(` bar `),
       new WhiskeyWigTextNode(` baz`),
     ]
     expect(tokenizeTextNode(domNode, acceptAll)).toEqual(expected)
@@ -35,9 +35,9 @@ describe(`tokenizeTextNode`, () => {
   it(`should tokenize a few interpolations`, () => {
     const domNode = utils.emptyDom().window.document.createTextNode(`{{foo}}bar{{baz}}qux`)
     const expected = [
-      new WhiskyWigInterpolationNode(`foo`),
+      new WhiskeyWigInterpolationNode(`foo`),
       new WhiskeyWigTextNode(`bar`),
-      new WhiskyWigInterpolationNode(`baz`),
+      new WhiskeyWigInterpolationNode(`baz`),
       new WhiskeyWigTextNode(`qux`),
     ]
     expect(tokenizeTextNode(domNode, acceptAll)).toEqual(expected)
@@ -46,8 +46,8 @@ describe(`tokenizeTextNode`, () => {
   it(`should not leave an empty text between two interpolations`, () => {
     const domNode = utils.emptyDom().window.document.createTextNode(`{{foo}}{{bar}}`)
     const expected = [
-      new WhiskyWigInterpolationNode(`foo`),
-      new WhiskyWigInterpolationNode(`bar`),
+      new WhiskeyWigInterpolationNode(`foo`),
+      new WhiskeyWigInterpolationNode(`bar`),
     ]
     expect(tokenizeTextNode(domNode, acceptAll)).toEqual(expected)
   })
@@ -55,10 +55,11 @@ describe(`tokenizeTextNode`, () => {
   it(`should differentiate between known and unknown`, () => {
     const domNode = utils.emptyDom().window.document.createTextNode(`{{foo}}{{bar}}`)
     const expected = [
-      new WhiskyWigInterpolationNode(`foo`),
-      new WhiskyWigInterpolationErrorNode(`bar`, `"bar" is not recognized.`),
+      new WhiskeyWigInterpolationNode(`foo`),
+      new WhiskeyWigInterpolationErrorNode(`bar`, `"bar" is not recognized.`),
     ]
-    expect(tokenizeTextNode(domNode, val => val == 'foo' ? null : val => `"${val}" is not recognized.`)).toEqual(expected)
+    expect(tokenizeTextNode(domNode, val => val == 'foo' ? null : val => `"${val}" is not recognized.`))
+      .toEqual(expected)
   })
 
 })

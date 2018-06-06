@@ -67,7 +67,7 @@ export class WhiskeyWigHtmlNode extends WhiskeyWigNode<WhiskeyWigNodeElementValu
   }
 }
 
-export class WhiskyWigInterpolationNode extends WhiskeyWigNode<WhiskeyWigNodeInterpolationValue> {
+export class WhiskeyWigInterpolationNode extends WhiskeyWigNode<WhiskeyWigNodeInterpolationValue> {
   constructor(value: string) {
     super({type: WhiskeyWigNodeValueType.INTERPOLATION, value})
   }
@@ -80,7 +80,7 @@ export class WhiskyWigInterpolationNode extends WhiskeyWigNode<WhiskeyWigNodeInt
   }
 }
 
-export class WhiskyWigInterpolationErrorNode extends WhiskeyWigNode<WhiskeyWigNodeInterpolationErrorValue> {
+export class WhiskeyWigInterpolationErrorNode extends WhiskeyWigNode<WhiskeyWigNodeInterpolationErrorValue> {
   constructor(value: string, error: string) {
     super({type: WhiskeyWigNodeValueType.INTERPOLATION_ERROR, value, error})
   }
@@ -101,8 +101,8 @@ export function deserialize({v, c}: TreeNodeSerialized<WhiskeyWigNodeValue>): Wh
     case WhiskeyWigNodeValueType.HTML_ELEMENT:
       return new WhiskeyWigHtmlNode(v.tagName, v.attributes, c.map(deserialize))
     case WhiskeyWigNodeValueType.INTERPOLATION:
-      return new WhiskyWigInterpolationNode(v.value)
+      return new WhiskeyWigInterpolationNode(v.value)
     case WhiskeyWigNodeValueType.INTERPOLATION_ERROR:
-      return new WhiskyWigInterpolationErrorNode(v.value, v.error)
+      return new WhiskeyWigInterpolationErrorNode(v.value, v.error)
   }
 }

@@ -3,8 +3,8 @@ import {
   WhiskeyWigNode,
   WhiskeyWigNodeValue,
   WhiskeyWigTextNode,
-  WhiskyWigInterpolationErrorNode,
-  WhiskyWigInterpolationNode,
+  WhiskeyWigInterpolationErrorNode,
+  WhiskeyWigInterpolationNode,
 } from '../ww-nodes'
 import {Forest} from '../forest'
 import {TreeNode} from '../tree'
@@ -49,9 +49,9 @@ export function tokenizeTextNode(domNode: Node, isInterpolationValid: (str: stri
     } else {
       const valid = isInterpolationValid(chunk)
       if (valid === null) {
-        nodes.push(new WhiskyWigInterpolationNode(chunk))
+        nodes.push(new WhiskeyWigInterpolationNode(chunk))
       } else {
-        nodes.push(new WhiskyWigInterpolationErrorNode(chunk, valid(chunk)))
+        nodes.push(new WhiskeyWigInterpolationErrorNode(chunk, valid(chunk)))
       }
     }
   })
