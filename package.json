@@ -5,7 +5,7 @@
   "main": "./dist/cjs/index.js",
   "es2015": "./dist/es2015/index.js",
   "module": "./dist/es2015/index.js",
-  "typings": "./dist/index.d.ts",
+  "typings": "./dist/es2015/index.d.ts",
   "repository": "github.com/weareneopix/whiskey-wig",
   "author": "Lazar Ljubenović",
   "license": "MIT",
