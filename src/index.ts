@@ -70,7 +70,7 @@ export default class WhiskeyWig {
     return this.model
   }
 
-  private loadModel(model: Forest<WhiskeyWigNodeValue, WhiskeyWigNode<WhiskeyWigNodeValue>>): this {
+  public loadModel(model: Forest<WhiskeyWigNodeValue, WhiskeyWigNode<WhiskeyWigNodeValue>>): this {
     this.model = model
     const html = this.render()
     html.forEach(node => this.editorDomElement.appendChild(node))
