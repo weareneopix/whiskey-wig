@@ -1,6 +1,6 @@
 {
   "name": "@weareneopix/whiskey-wig",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "What You See Kinda Is What You Get.",
   "main": "./dist/cjs/index.js",
   "es2015": "./dist/es2015/index.js",
